@@ -1,0 +1,10 @@
+{
+  "name": "rust-hooks-plugin",
+  "version": "1.0.0",
+  "description": "Rustファイル編集後にcargo fmtとcargo clippyを自動実行するhooksプラグイン",
+  "author": {
+    "name": "DIO0550"
+  },
+  "repository": "https://github.com/DIO0550/d-market-rust",
+  "license": "MIT"
+}

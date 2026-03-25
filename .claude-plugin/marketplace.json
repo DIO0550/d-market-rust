@@ -13,6 +13,11 @@
       "name": "rust-workflow-plugin",
       "source": "./plugins/rust-workflow-plugin",
       "description": "Rustワークフロープラグイン（テスト実行、型チェック、ファイル検索エージェント）"
+    },
+    {
+      "name": "rust-hooks-plugin",
+      "source": "./plugins/rust-hooks-plugin",
+      "description": "Rustファイル編集後にcargo fmtとcargo clippyを自動実行するhooksプラグイン"
     }
   ]
 }
