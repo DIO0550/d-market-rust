@@ -8,9 +8,9 @@ if [[ "$file_path" != *.rs ]]; then
   exit 0
 fi
 
-# Run rustfmt on the edited file
+# Check format on the edited file
 if command -v rustfmt &>/dev/null; then
-  rustfmt "$file_path" 2>&1
+  rustfmt --check "$file_path" 2>&1
 fi
 
 # Run cargo clippy
