@@ -21,7 +21,7 @@ fi
 
 # Run cargo clippy
 if command -v cargo &>/dev/null; then
-  clippy_output=$(cargo clippy 2>&1 | head -50)
+  clippy_output=$(cargo clippy -- -D warnings 2>&1 | head -50)
   if [[ $? -ne 0 ]]; then
     errors+="[cargo clippy failed]\n${clippy_output}\n"
   fi
