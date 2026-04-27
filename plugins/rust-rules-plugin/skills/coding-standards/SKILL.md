@@ -103,11 +103,17 @@ match result {
 ## モジュール構成
 
 ```rust
-// ✅ mod.rsまたはファイル名でモジュール定義
+// ✅ ファイル名ベースのモジュール定義（Rust 2018+推奨）
 // src/
 //   lib.rs
+//   config.rs        ← config モジュール本体
 //   config/
-//     mod.rs
+//     parser.rs      ← config::parser サブモジュール
+
+// ❌ mod.rs スタイルは使用しない
+// src/
+//   config/
+//     mod.rs          ← 古いスタイル
 //     parser.rs
 
 // ✅ 公開範囲を最小限に
