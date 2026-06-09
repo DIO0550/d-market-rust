@@ -1,7 +1,7 @@
 {
   "name": "rust-hooks-plugin",
   "version": "1.0.0",
-  "description": "Rustファイル編集後にcargo fmtとcargo clippyを自動実行するhooksプラグイン",
+  "description": "Rustファイル編集前にrust-rules-pluginの実装ルールスキル発火を強制し、編集後にcargo fmtとcargo clippyを自動実行するhooksプラグイン",
   "author": {
     "name": "DIO0550"
   },
