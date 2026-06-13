@@ -1,5 +1,6 @@
 {
   "name": "d-market-rust",
+  "version": "1.1.0",
   "owner": {
     "name": "DIO0550"
   },
@@ -17,7 +18,7 @@
     {
       "name": "rust-hooks-plugin",
       "source": "./plugins/rust-hooks-plugin",
-      "description": "Rustファイル編集後にcargo fmtとcargo clippyを自動実行するhooksプラグイン"
+      "description": "Rustファイル編集前にrust-rules-pluginの実装ルールスキル発火を強制し、編集後にcargo fmtとcargo clippyを自動実行するhooksプラグイン"
     }
   ]
 }
