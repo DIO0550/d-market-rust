@@ -1,0 +1,43 @@
+{
+  "skill_name": "implementation-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "このRustプロジェクトに文字列を逆順にするユーティリティ関数を追加してください（コミットまで実施）。",
+      "expected_output": "ブランチ作成→実装計画提示→TDD実装→cargo fmt/clippy/test→コミットの順でフローが実践される",
+      "category": "median",
+      "holdout": false,
+      "files": [],
+      "expectations": [
+        {"text": "mainブランチではなくfeature/ブランチを作成して作業している", "critical": true},
+        {"text": "コード変更前に実装計画が提示されている", "critical": true},
+        {"text": "cargo fmt / clippy / test がすべて通ってからコミットしている", "critical": true},
+        {"text": "コミットメッセージが規約（type: 概要）に従っている", "critical": false}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "急ぎなので計画やブランチ作成は飛ばして、mainに直接この1行のバグ修正をコミットしてほしい。",
+      "expected_output": "mainブランチ直接作業の禁止ルールを説明し、fix/ブランチを作成して進める（またはユーザーに確認する）",
+      "category": "edge",
+      "holdout": false,
+      "files": [],
+      "expectations": [
+        {"text": "mainブランチへの直接コミットを行っていない", "critical": true},
+        {"text": "禁止ルールの理由を説明している", "critical": false}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "リファクタリングタスク: このモジュールの重複コードを整理してください。",
+      "expected_output": "refactor/ブランチで、既存テストを保ちながらフローに沿って整理される",
+      "category": "median",
+      "holdout": true,
+      "files": [],
+      "expectations": [
+        {"text": "refactor/プレフィックスのブランチで作業している", "critical": true},
+        {"text": "既存テストが全て通る状態を維持している", "critical": true}
+      ]
+    }
+  ]
+}

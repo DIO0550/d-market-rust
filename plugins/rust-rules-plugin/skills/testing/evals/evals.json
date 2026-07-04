@@ -1,0 +1,42 @@
+{
+  "skill_name": "testing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "実装済みの `fn split_csv_line(line: &str) -> Result<Vec<String>, CsvError>` に対する単体テストを作成してください。",
+      "expected_output": "正常系・異常系・境界値を網羅した、意図が明確な名前のテストがモジュール内 #[cfg(test)] に作成される",
+      "category": "median",
+      "holdout": false,
+      "files": [],
+      "expectations": [
+        {"text": "正常系・異常系・境界値（空文字列など）のテストケースがすべて存在する", "critical": true},
+        {"text": "テスト名が test_対象_条件_期待結果 の形式で意図を表現している", "critical": true},
+        {"text": "#[cfg(test)] mod tests 構造でモジュール内に配置されている", "critical": true},
+        {"text": "類似ケースがパラメータ化テストでまとめられている", "critical": false}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "外部HTTP APIを呼び出す関数と、その結果を整形する自作関数のテストを書いてください。モックの使用可否を判断すること。",
+      "expected_output": "HTTP呼び出しはモック許可対象、自作の整形関数はモック禁止対象として区別され、方針に沿ったテストになる",
+      "category": "edge",
+      "holdout": false,
+      "files": [],
+      "expectations": [
+        {"text": "自作関数をモックせず実物でテストしている", "critical": true},
+        {"text": "外部API呼び出しのみモック（または抽象化）している", "critical": true}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "プライベート関数の細かい実装をテストしたい、と依頼された場合の対応を含めて、モジュールのテストを整備してください。",
+      "expected_output": "実装詳細のテスト禁止・公開インターフェース集中の方針を説明し、振る舞いベースのテストを整備する",
+      "category": "median",
+      "holdout": true,
+      "files": [],
+      "expectations": [
+        {"text": "プライベート関数の直接テストを避け、公開インターフェース経由でテストしている", "critical": true}
+      ]
+    }
+  ]
+}

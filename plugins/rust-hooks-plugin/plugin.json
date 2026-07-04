@@ -1,6 +1,6 @@
 {
   "name": "rust-hooks-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Rustファイル編集後にcargo fmtとcargo clippyを自動実行するhooksプラグイン",
   "author": {
     "name": "DIO0550"

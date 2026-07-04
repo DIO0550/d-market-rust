@@ -1,0 +1,40 @@
+{
+  "skill_name": "tdd",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "TDDでパスワードバリデータ（8文字以上・数字を含む・英字を含む、失敗理由は列挙型で返す）を実装してください。各サイクルでcargo testを実行すること。",
+      "expected_output": "テストリスト作成→1ケースずつRed（失敗確認）→Green（最小実装）→Refactorのサイクルが繰り返され、最終的に全テストが通る",
+      "category": "median",
+      "holdout": false,
+      "files": [],
+      "expectations": [
+        {"text": "実装コードより先にテストが書かれ、cargo testで失敗（Red）が確認されている", "critical": true},
+        {"text": "1テストケースずつ小さいサイクルで進めている（全テストを一括先書きしていない）", "critical": true},
+        {"text": "Refactorフェーズで重複排除等の改善を行い、テストが成功を維持している", "critical": false}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "既存の実装済み関数にあとからテストを追加してほしい。TDDスキルに従うとどう進めるべきか判断して実施してください。",
+      "expected_output": "既存コードへのテスト追加はTDDサイクル外であることを認識し、特性テスト等の適切な進め方を選択する",
+      "category": "edge",
+      "holdout": false,
+      "files": [],
+      "expectations": [
+        {"text": "Red-Green-Refactorを機械的に適用せず、既存コードに対する適切なテスト追加手順を取っている", "critical": true}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "TDDでFizzBuzz関数を実装してください。",
+      "expected_output": "テストリスト→Red→Green→Refactorの基本サイクルが実践される",
+      "category": "median",
+      "holdout": true,
+      "files": [],
+      "expectations": [
+        {"text": "テストファーストで実装され、全テストが通る", "critical": true}
+      ]
+    }
+  ]
+}
