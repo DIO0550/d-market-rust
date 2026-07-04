@@ -13,7 +13,8 @@ Rust 開発における基本ルールを定義するプラグイン。
 | スキル | 説明 |
 |:--|:--|
 | `implementation-workflow` | 実装フローのエントリーポイント。ブランチ運用、TDD サイクル、品質チェックの流れを定義 |
-| `coding-standards` | コーディング規約。所有権・借用、エラーハンドリング、命名規則、不変性の方針 |
+| `coding-standards` | コーディング規約。所有権・借用、エラーハンドリング、命名規則、不変性、並行・非同期、lint 抑制の方針 |
+| `design-guidelines` | 設計ガイドライン。振る舞いの配置（impl と自由関数）、ファイル分割、型変換の実装位置、enum 命名、重複排除の手段選択 |
 | `tdd` | TDD Red-Green-Refactor サイクルのルール |
 | `testing` | 単体テスト・統合テストの規約。テスト構造、モック方針、テストピラミッド |
 | `setup` | プロジェクトの指示ファイルにスキル活用ガイドを追記するセットアップ |
@@ -55,6 +56,7 @@ d-market-rust/
 │   │   └── skills/
 │   │       ├── implementation-workflow/
 │   │       ├── coding-standards/
+│   │       ├── design-guidelines/
 │   │       ├── setup/
 │   │       ├── testing/
 │   │       └── tdd/
