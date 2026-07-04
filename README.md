@@ -76,8 +76,6 @@ d-market-rust/
 │           ├── test-agent.md
 │           ├── type-check-agent.md
 │           └── file-search-agent.md
-├── docs/
-│   └── skill-evaluation-report.md  # スキル評価の記録
 ├── CLAUDE.md
 ├── README.md
 └── LICENSE
@@ -85,7 +83,7 @@ d-market-rust/
 
 ## スキルの回帰チェック
 
-rust-rules-plugin の主要スキルは `skills/<スキル名>/evals/evals.json` に評価ケース（回帰スイート）を持つ。スキルを修正した際は、このケースを新規サブエージェントで実行して品質の後退がないか確認する。運用方法は [docs/skill-evaluation-report.md](docs/skill-evaluation-report.md) を参照。
+rust-rules-plugin の主要スキルは `skills/<スキル名>/evals/evals.json` に評価ケース（回帰スイート）を持つ。スキルを修正した際は、このケースを新規サブエージェントで実行して品質の後退がないか確認する。
 
 ## ライセンス
 
