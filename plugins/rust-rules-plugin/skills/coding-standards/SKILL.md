@@ -136,7 +136,7 @@ let headers = {
 - 停止条件が複雑なロジック・複数の break 条件・`break value` で値を返す場合は `loop` + `match`
 - ループ内で「必須の値が取れなければ離脱」は `let ... else { break; }` でネストを増やさない
 
-clippy `while_let_loop` が「`while let` に書き換え可能な `loop`」を検出する。発火しない `loop` はそのままで妥当というシグナル。
+clippy `while_let_loop`（style グループ）が「`while let` に書き換え可能な `loop`」を検出するが、これは機械的な書き換え可否を示す参考シグナルであり、必ず従うものではない。分岐が今後増える予定があるなど `loop` + `match` のままが読みやすい場合は、`#[expect(clippy::while_let_loop, reason = "...")]` を付けて維持してよい。発火しない `loop` はそのままで妥当。
 
 ## 並行・非同期処理
 
@@ -219,4 +219,4 @@ pub fn public_api() { ... }
 - `unsafe` の不必要な使用
 - `clone()` の乱用（パフォーマンス低下。許容基準は「deriveとcloneの指針」参照）
 - `unwrap()` / `expect()` の本番コードでの使用（テストコードは対象外）
-- `#[allow(...)]` によるclippy警告の無効化。clippyの提案がAPI設計上どうしても不適切な場合に限り、`#[expect(lint, reason = "...")]` で最小スコープ（項目単位）のみ抑制する（「lint抑制のルール」参照）
+- `#[allow(...)]` によるclippy警告の無効化。clippyの提案に従えない正当な理由がある場合（API設計上不適切、styleルールの意図的な例外など）に限り、`#[expect(lint, reason = "...")]` で最小スコープ（項目単位）のみ抑制する（「lint抑制のルール」参照）
