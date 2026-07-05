@@ -36,14 +36,15 @@ description: Rustプロジェクトのファイル検索スキル。ファイル
 
 ```
 Task tool:
-  subagent_type: "Explore"
+  subagent_type: "file-search-agent"
   prompt: |
-    Rustファイル検索エージェントとして、以下の検索を実行してください。
+    以下の検索を実行し、結果を整理して報告してください。
 
     検索対象: {検索したい内容}
-
-    `agents/file-search-agent.md` の指示に従い、結果を整理して報告してください。
+    検索範囲: {プロジェクト全体 / 特定のクレート・ディレクトリ}
 ```
+
+subagent_type には本プラグインの agents/file-search-agent.md がカスタムエージェントとして登録される `file-search-agent` を指定する。サブエージェントは親の会話コンテキストを引き継がないため、検索対象・範囲は必ずpromptに明示する。
 
 ### 検索リクエストの例
 
@@ -54,7 +55,7 @@ Task tool:
 
 ## 参照エージェント
 
-詳細な検索手順は `agents/file-search-agent.md` を参照。
+詳細な検索手順は本プラグインの `agents/file-search-agent.md`（カスタムエージェント `file-search-agent`）に定義されている。
 
 ## 期待される結果
 
