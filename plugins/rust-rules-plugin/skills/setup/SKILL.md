@@ -16,7 +16,7 @@ description: Rustプロジェクトの指示ファイル（CLAUDE.md、.cursorru
 | スキル | 用途 |
 |:--|:--|
 | `implementation-workflow` | 実装開始時のエントリーポイント |
-| `coding-standards` | Rust コーディング規約（所有権・借用・エラーハンドリング・命名規則） |
+| `coding-standards` | Rust コーディング規約（所有権・借用・エラーハンドリング・命名規則・設計ガイドライン） |
 | `tdd` | TDD Red-Green-Refactor サイクル |
 | `testing` | ユニットテスト・統合テストのルール |
 
@@ -48,7 +48,7 @@ Rust コードを変更するすべての作業で、以下のスキルを **Ski
 memory に過去の内容があっても省略せず、必ず Skill ツールで最新版を読み込むこと。
 
 - 実装開始時は `implementation-workflow` スキルを Skill ツールで実行し、フローに従う
-- コーディング中は `coding-standards` スキルを Skill ツールで実行
+- コーディング中・設計判断時は `coding-standards` スキルを Skill ツールで実行
 - テスト作成時は `tdd` および `testing` スキルを Skill ツールで実行
 ```
 
