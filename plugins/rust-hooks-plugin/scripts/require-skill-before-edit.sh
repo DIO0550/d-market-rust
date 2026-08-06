@@ -10,10 +10,10 @@ case "$file" in
 esac
 
 case "$file" in
-  */plugin-workspace/*|*/.claude/*|*/plugins/*|*/target/*) exit 0 ;;
+  */.plugin-workspace/*|*/.claude/*|*/plugins/*|*/target/*) exit 0 ;;
 esac
 case "$file" in
-  plugin-workspace/*|.claude/*|plugins/*|target/*) exit 0 ;;
+  .plugin-workspace/*|.claude/*|plugins/*|target/*) exit 0 ;;
 esac
 
 session_id="$(jq -r '.session_id // empty' <<< "$input")"
@@ -21,7 +21,7 @@ session_id="$(jq -r '.session_id // empty' <<< "$input")"
 session_id="$(echo "$session_id" | sed 's/[^a-zA-Z0-9_-]/_/g')"
 
 gate_skills=("implementation-workflow" "coding-standards" "tdd" "testing")
-marker_dir="${CLAUDE_PROJECT_DIR:-.}/plugin-workspace/skill-fired/${session_id}"
+marker_dir="${CLAUDE_PROJECT_DIR:-.}/.plugin-workspace/skill-fired/${session_id}"
 
 missing=()
 for skill in "${gate_skills[@]}"; do
