@@ -60,7 +60,7 @@ mod tests {
     }
 
     #[test]
-    fn test_user_display() {
+    fn test_display_name_with_valid_user_returns_name() {
         let user = create_test_user();
         assert_eq!(user.display_name(), "Test User");
     }
@@ -77,7 +77,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_add_various_inputs() {
+    fn test_add_with_various_inputs_returns_sum() {
         let cases = vec![
             (1, 2, 3),
             (5, 5, 10),
@@ -130,8 +130,8 @@ tests/
 
 テストが増えて実装ファイルが肥大化した場合は、`#[path]` 属性でテストだけ別ファイルに切り出してよい。
 
-- `tests/` ディレクトリへ移すのは不可（別クレート扱いになり、プライベート項目にアクセスできない）
-- クレート内のサブモジュールとして読み込むため、プライベートアクセスと `cargo test` 限定コンパイルは維持される
+- `tests/` ディレクトリへ移すのは不可（別クレート扱いになり、`pub(crate)` 項目やクレート内部のテスト用ヘルパーにアクセスできない）
+- クレート内のサブモジュールとして読み込むため、クレート内部項目へのアクセスと `cargo test` 限定コンパイルは維持される
 - `#[path]` は必ず**ファイルのトップレベル**に書く。インラインモジュールブロックの中にネストすると、相対パスの起点にモジュール名ディレクトリが付いて解決を外す
 
 ```rust
@@ -143,17 +143,17 @@ mod tests;
 
 ```rust
 // src/calc_tests.rs
-use super::*; // 親モジュールのプライベート項目にもアクセス可
+use super::*; // pub(crate) 項目やクレート内部項目にもアクセス可
 
 #[test]
-fn test_add_returns_sum() { ... }
+fn test_add_with_positive_numbers_returns_sum() { ... }
 ```
 
 ## 適正化指針
 
 - **重複テストの排除**: 同じ振る舞いを複数方法でテストしない
-- **実装詳細のテスト禁止**: プライベート関数の直接テストは行わない
-- **公開インターフェースのみテスト**: 外部から呼び出される関数に集中
+- **実装詳細のテスト禁止**: プライベート関数を直接テストせず、原則として公開API経由で振る舞いを検証する
+- **公開インターフェース中心のテスト**: 公開API経由のテストを原則とするが、`pub(crate)` 項目やテスト用ヘルパー等クレート内部項目へのアクセスが必要な場合に限り `#[cfg(test)]` 内のモジュールテストを用いる
 
 ## 関連スキル
 

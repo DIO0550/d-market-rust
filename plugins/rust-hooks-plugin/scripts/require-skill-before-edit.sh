@@ -25,7 +25,7 @@ marker_dir="${CLAUDE_PROJECT_DIR:-.}/.plugin-workspace/skill-fired/${session_id}
 
 missing=()
 for skill in "${gate_skills[@]}"; do
-  [ -f "$marker_dir/$skill" ] || missing+=("$skill")
+  [ -f "$marker_dir/rust-rules-plugin__$skill" ] || missing+=("$skill")
 done
 
 [ ${#missing[@]} -eq 0 ] && exit 0

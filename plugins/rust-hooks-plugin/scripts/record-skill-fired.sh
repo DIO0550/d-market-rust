@@ -17,4 +17,4 @@ session_id="$(echo "$session_id" | sed 's/[^a-zA-Z0-9_-]/_/g')"
 
 marker_dir="${CLAUDE_PROJECT_DIR:-.}/.plugin-workspace/skill-fired/${session_id}"
 mkdir -p "$marker_dir"
-touch "$marker_dir/$skill_name"
+touch "$marker_dir/rust-rules-plugin__$skill_name"
