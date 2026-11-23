@@ -1,6 +1,6 @@
 ---
 name: implementation-workflow
-description: Rustプロジェクトで実装を開始する際に必ず参照するスキル。新機能追加、バグ修正、リファクタリングなどコードを変更するすべての作業で使用する。TDDによるRed-Green-Refactorサイクル、cargo fmt/clippy/testによる品質チェック、ブランチ運用ルールを定義。「Rustで実装」「Rustコードを書く」「機能を追加」「バグを修正」などのリクエスト時に自動参照。
+description: Rustプロジェクトで実装を開始する際に必ず参照するスキル。Rustの新機能追加、バグ修正、リファクタリングなどコードを変更するすべての作業で使用する。TDDによるRed-Green-Refactorサイクル、cargo fmt/clippy/testによる品質チェック、ブランチ運用ルールを定義。「Rustで実装」「Rustコードを書く」「Rustで機能を追加」「Rustのバグを修正」などのリクエスト時に自動参照。
 ---
 
 # Rust実装ワークフロー
@@ -120,5 +120,5 @@ Conventional Commits に従う。1コミット = 1つの論理的変更（雛形
 - [ ] `cargo fmt` 実行済み
 - [ ] `cargo clippy` 警告なし
 - [ ] `cargo test` 通過
-- [ ] コミットルールに従っている（commitスキル参照）
+- [ ] コミットルールに従っている（本スキルの「コミット規約」セクション参照）
 ```
